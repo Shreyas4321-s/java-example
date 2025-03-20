@@ -1,9 +1,9 @@
 pipeline{
-    agent {label 'angular'}
+    agent {label 'sonar'}
     stages{
        stage('Git Checkout Stage'){
             steps{
-                git branch: 'main', url: 'https://github.com/sudheer76R/java-example.git'
+                git branch: 'main', url: 'https://github.com/Shreyas4321-s/java-example.git'
             }
          }        
        stage('Build Stage'){
@@ -13,7 +13,7 @@ pipeline{
          }
         stage('SonarQube Analysis Stage') {
             steps{
-                withSonarQubeEnv('sonarqube-server') { 
+                withSonarQubeEnv('SonarQube-jenkins') { 
                     sh "mvn clean verify sonar:sonar"
                 }
             }
