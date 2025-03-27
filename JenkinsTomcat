@@ -16,13 +16,13 @@ pipeline {
 
         stage('build') {
             steps {
-                echo 'mvn clean package'
+                echo 'mvn clean install'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'sudo cp target/works-with-heroku-1.0.war /opt/tomcat/webapps/'
+                sh 'sudo cp /home/ec2-user/jenkins/workspace/Tomcat/target/works-with-heroku-1.0.war /opt/tomcat/webapps/'
             }
         }
 
